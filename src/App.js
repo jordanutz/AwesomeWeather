@@ -11,31 +11,37 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      zip: '',
-      weather: []
+      weather: null, 
+      error: false
     }
   }
 
-  inputZip = (event) => {
-    this.setState({
-      zip: event.target.value
-    })
-  }
-
-  retrieveForecast = (zip) => {
-    axios.post('/api/weather', {zip}).then(res => {
-      console.log(res.data)
+  retrieveForecast = (city, state) => {
+    axios.post('/api/weather', {city, state}).then(res => {
+      this.setState({
+        weather: res.data.daily.data, 
+        error: false
+      })
     })
   }
 
   render () {
+
+    if (this.state.weather) {
+      console.log(this.state.weather)
+    }
+
+    const errorMessage = "Please input all required fields"
+
     return (
       <div className="App">
-      <h1>Herro</h1>
-      <h2>Please enter your zip code!</h2>
-      <input onChange={(e) => this.inputZip(e)} type="text" value={this.state.zip}/>
-      <button onClick={() => this.retrieveForecast(this.state.zip)}>Submit</button>
-    </div>
+        <Input 
+          retrieveForecast={this.retrieveForecast}
+          errorMessage={errorMessage}
+          findError={this.state.error}
+        />
+
+      </div>
     )
   }
 }
