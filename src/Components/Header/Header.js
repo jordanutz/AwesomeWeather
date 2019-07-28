@@ -1,10 +1,11 @@
 import React from 'react';
 import './Header.css';
+import Sun from './assets/sun.svg'
 
 const Header = (props) => {
   return (
     <header>
-        <h1>Weather</h1>
+        <img src={Sun} alt="Header Icon"/>
     </header>
   )
 }
