@@ -4,11 +4,14 @@ import Moment from 'react-moment'
 
 const Daily = (props) => {
 
+  const dayStamp = <Moment unix format="dddd">{props.time}</Moment>
+  const monthStamp = <Moment unix format="MMMM Do">{props.time}</Moment>
+
   return (
     <div id="Daily">
       <section className="TimeStamp">
-        <h3><Moment unix format="MMMM Do">{props.time}</Moment></h3>
-        <h2><Moment unix format="dddd">{props.time}</Moment></h2>
+        <h3>{monthStamp}</h3>
+        <h2>{dayStamp}</h2>
       </section>
       <section className="DailyForecast">
         <h4 id="MaxTemp">{Math.round(props.temperatureHigh)}°</h4>

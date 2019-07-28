@@ -1,9 +1,18 @@
 #Dashboard {
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #Dashboard h1 {
   text-align: center;
   font-size: 2em;
   margin-bottom: 25px;
+}
+
+.CurrentWeather {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 15px;
 }

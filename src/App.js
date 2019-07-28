@@ -13,17 +13,16 @@ class App extends Component {
       weather: null, 
       error: false, 
       cityDetails: null, 
-      stateDetails: null
+      stateDetails: null, 
+      current: null
     }
   }
 
   retrieveForecast = (city, state) => {
     axios.post('/api/weather', {city, state}).then(res => {
-
-      let filteredForecast = res.data.forecast.daily.data.filter( (daily, index) => index > 1 && index <= 6)
-
       this.setState({
-        weather: filteredForecast,
+        current: res.data.current,
+        weather: res.data.forecast,
         cityDetails: res.data.city, 
         stateDetails: res.data.state,
         error: false
@@ -50,6 +49,7 @@ class App extends Component {
           city={this.state.cityDetails}
           state={this.state.stateDetails}
           weather={this.state.weather}
+          current={this.state.current}
         />
       </div>
     )
