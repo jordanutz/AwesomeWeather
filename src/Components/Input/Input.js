@@ -19,6 +19,13 @@ class Input extends Component {
     })
   }
 
+  resetInput = () => {
+    this.setState({
+      city: '', 
+      location: ''
+    })
+  }
+  
   render () {
     return (
       <div id="Input">
@@ -26,7 +33,10 @@ class Input extends Component {
         <section className="UserInput">
           <input onChange={(e) => this.handleInput(e)} type="text" value={this.state.city} name="city" placeholder="City"/>
           <input onChange={(e) => this.handleInput(e)} type="text" value={this.state.location} name="location" placeholder="State"/>
-          <button onClick={() => this.props.retrieveForecast(this.state.city, this.state.location)}>Submit</button>
+          <section className="Submission">
+            <button onClick={() => this.props.resetForecast(this.resetInput)}>Reset</button>
+            <button onClick={() => this.props.retrieveForecast(this.state.city, this.state.location)}>Submit</button>
+          </section>
           {this.props.findError ? this.props.errorMessage : null}
         </section>
       </div>

@@ -11,7 +11,6 @@ class App extends Component {
     super()
     this.state = {
       weather: null, 
-      error: false, 
       cityDetails: null, 
       stateDetails: null, 
       current: null
@@ -25,9 +24,18 @@ class App extends Component {
         weather: res.data.forecast,
         cityDetails: res.data.city, 
         stateDetails: res.data.state,
-        error: false
       })
     })
+  }
+
+  resetForecast = (resetInput) => {
+    this.setState({
+      weather: null, 
+      cityDetails: null, 
+      stateDetails: null,
+      current: null,
+    })
+    resetInput()
   }
 
   render () {
@@ -36,15 +44,14 @@ class App extends Component {
     //   console.log(this.state.weather)
     // }
 
-    const errorMessage = "Please input all required fields";
-
     return (
       <div className="App">
         <Input 
           retrieveForecast={this.retrieveForecast}
-          errorMessage={errorMessage}
-          findError={this.state.error}
+          resetForecast={this.resetForecast}
+  
         />
+
         <Dashboard 
           city={this.state.cityDetails}
           state={this.state.stateDetails}
