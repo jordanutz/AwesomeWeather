@@ -30,7 +30,7 @@ class Input extends Component {
 
     const {handleInput, resetInput} = this;
     const {city, location} = this.state;
-    const {resetForeCast} = this.props;
+    const {retrieveForecast, resetForecast} = this.props;
 
     return (
       <div id="Input">
@@ -39,10 +39,9 @@ class Input extends Component {
           <input onChange={(e) => handleInput(e)} type="text" value={city} name="city" placeholder="City"/>
           <input onChange={(e) => handleInput(e)} type="text" value={location} name="location" placeholder="State"/>
           <section className="Submission">
-            <button onClick={() => this.props.resetForecast(resetInput)}>Reset</button>
-            <button onClick={() => this.props.retrieveForecast(city, location)}>Submit</button>
+            <button onClick={() => resetForecast(resetInput)}>Reset</button>
+            <button onClick={() => retrieveForecast(city, location)}>Submit</button>
           </section>
-          {this.props.findError ? this.props.errorMessage : null}
         </section>
         <section className="Copyright">
           <small>&copy; Made by Jordan Utz using DarkSky API</small>
