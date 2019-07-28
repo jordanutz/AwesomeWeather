@@ -1,14 +1,23 @@
 import React from 'react'
 import './Dashboard.css'
 
+// Components
+import Daily from '../Daily/Daily'
+
 const Dashboard = (props) => {
 
-  // const displayForecast = props.weather && 
-  //   props.weather.map(daily => )
+  const displayForecast = props.weather && 
+    props.weather.map( (single, index) => {
+      console.log(single)
+      return (
+        <Daily key={index} {...single} />
+      )
+    })
 
   return (
     <section id="Dashboard">
-      <h1>Dashboard</h1>
+      <h1>{props.city && props.state ? props.city + ', ' + props.state : null}</h1>
+      {displayForecast}
     </section>
   )
 }

@@ -1,4 +1,9 @@
 #Dashboard {
-  padding: 1rem;
+  padding: 2rem;
+}
 
+#Dashboard h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 25px;
 }

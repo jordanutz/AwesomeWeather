@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './Input.css'
 
-// Components 
+// Components
 import Header from '../Header/Header'
 
 class Input extends Component {
