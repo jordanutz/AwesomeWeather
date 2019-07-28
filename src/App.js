@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import './App.css';
-import axios from 'axios'
+import axios from 'axios';
 
 // Components 
-import Input from './Components/Input/Input'
-import Dashboard from './Components/Dashboard/Dashboard'
+import Input from './Components/Input/Input';
+import Dashboard from './Components/Dashboard/Dashboard';
 
 class App extends Component {
   constructor () {
@@ -40,6 +40,9 @@ class App extends Component {
 
   render () {
 
+    const {retrieveForecast, resetForecast} = this;
+    const {cityDetails, stateDetails, weather, current} = this.state;
+
     // if (this.state.weather) {
     //   console.log(this.state.weather)
     // }
@@ -47,20 +50,19 @@ class App extends Component {
     return (
       <div className="App">
         <Input 
-          retrieveForecast={this.retrieveForecast}
-          resetForecast={this.resetForecast}
-  
+          retrieveForecast={retrieveForecast}
+          resetForecast={resetForecast}
         />
 
         <Dashboard 
-          city={this.state.cityDetails}
-          state={this.state.stateDetails}
-          weather={this.state.weather}
-          current={this.state.current}
+          city={cityDetails}
+          state={stateDetails}
+          weather={weather}
+          current={current}
         />
       </div>
     )
   }
 }
 
-export default App
+export default App;

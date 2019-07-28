@@ -1,20 +1,20 @@
 #Daily {
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.12), 0px 4px 5px 0px rgba(0, 0, 0, 0.12), 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
-  padding: 1rem;
-  border-radius: 10px;
+  padding: .5em;
   min-height: 60px;
   display: flex;
   justify-content: space-between;
-  background: #fff;
+  background: none;
 }
 
-#MaxTemp {
-  color: #F71142;
+.DailyForecast {
+  display: flex;
 }
 
-#LowTemp {
-  color: #1181F7;
+.DailyForecast h4 {
+  color: #fff;
+  font-size: 2em;
+  font-weight: 200;
 }
 
 #Daily h3 {

@@ -4,8 +4,8 @@ import Moment from 'react-moment'
 
 const Daily = (props) => {
 
-  const dayStamp = <Moment unix format="dddd">{props.time}</Moment>
-  const monthStamp = <Moment unix format="MMMM Do">{props.time}</Moment>
+  const dayStamp = <Moment unix format="dddd" style={{color: '#fff', fontSize: '1.25em', fontWeight: '200'}}>{props.time}</Moment>
+  const monthStamp = <Moment unix format="MMMM Do" style={{color: '#fff', fontSize: '1.5em', fontWeight: '200'}}>{props.time}</Moment>
 
   return (
     <div id="Daily">
@@ -14,8 +14,7 @@ const Daily = (props) => {
         <h2>{dayStamp}</h2>
       </section>
       <section className="DailyForecast">
-        <h4 id="MaxTemp">{Math.round(props.temperatureHigh)}°</h4>
-        <h4 id="LowTemp">{Math.round(props.temperatureLow)}°</h4>
+        <h4>{Math.round(props.temperatureHigh)}° | {Math.round(props.temperatureLow)}°</h4>
       </section>
     </div>
   )

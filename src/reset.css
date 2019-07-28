@@ -18,5 +18,6 @@ time, mark, audio, video {
 	vertical-align: baseline;
   box-sizing: border-box;
 	line-height: 1.25;
-	font-family: 'Nanum Gothic', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #111;
 }
